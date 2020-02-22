@@ -63,7 +63,7 @@ public class App
 				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
 				Date date = new Date();
 				
-				String fileName = "/user/npruehs/" + dateFormat.format(date) + ".txt";
+				String fileName = "/user/npruehs/input/" + dateFormat.format(date) + ".txt";
 				
 				putToHDFS(fileName, eventLog);
 				
@@ -97,6 +97,8 @@ public class App
 		while ((i = bis.read()) >= 0) {
 			bos.write(i);
 		}
+		
+		bos.flush();
 		
 		System.out.println(url);
 		System.out.println(((HttpURLConnection)urlconnection).getResponseMessage());
